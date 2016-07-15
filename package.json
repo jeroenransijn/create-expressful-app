@@ -1,0 +1,26 @@
+{
+  "name": "expressful-tools",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "dev": "./dev.js"
+  },
+  "author": "Jeroen Ransijn (http://jeroenransijn.nl/)",
+  "license": "MIT",
+  "devDependencies": {
+    "config": "^1.21.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "^3.0.7",
+    "minimatch": "^3.0.2",
+    "postcss": "^5.1.0",
+    "stylefmt": "^4.1.1"
+  }
+}
