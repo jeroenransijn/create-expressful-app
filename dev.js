@@ -1,18 +1,30 @@
+#!/usr/bin/env node
 'use strict';
 const fs = require('fs');
-const gulp = require('gulp');
-const vanillaPostcss = require('postcss');
-const postcss = require('gulp-postcss');
-const sourcemaps = require('gulp-sourcemaps');
-const stylefmt = require('stylefmt');
-const plumber = require('gulp-plumber');
 const minimatch = require('minimatch');
+const config = require('config');
+
+const gulp = require('gulp');
+const sourcemaps = require('gulp-sourcemaps');
+const plumber = require('gulp-plumber');
 const rename = require('gulp-rename');
 const nodemon = require('gulp-nodemon');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const gutil = require('gulp-util');
-const config = require('config');
+
+// # CSS
+
+// "You can literally write future-proof CSS and forget old preprocessor specific syntax."
+// READ MORE: http://cssnext.io/features/
+// cssnext is based on PostCSS
+const vanillaPostcss = require('postcss');
+const postcss = require('gulp-postcss');
+const postcssImport = require('postcss-import');
+const postcssCssnext = require('postcss-cssnext');
+const cssnano = require('cssnano');
+const postcssBrowserReporter = require('postcss-browser-reporter');
+const stylefmt = require('stylefmt');
 
 const settings = {
 
@@ -60,13 +72,13 @@ function streamError(err) {
 
 function styles () {
   const processors = [
-    require('postcss-import'),
-    require('postcss-cssnext')({
+    postcssImport,
+    postcssCssnext({
       browsers: ['last 1 version'],
       warnForDuplicates: false
     }),
-    require('cssnano')(),
-    require('postcss-browser-reporter')
+    cssnano(),
+    postcssBrowserReporter
   ];
 
   gulp.src(settings.src.main)
@@ -153,4 +165,4 @@ function dev () {
   serve();
 }
 
-module.exports = dev;
+dev();
