@@ -1,8 +1,31 @@
 #!/usr/bin/env node
 'use strict';
+const settings = {
+
+  /**
+   * Source settings
+   * ---
+   * this patterns match the entry files for css and javascript
+   */
+  src: {
+    css: '**/src/css/*.css',
+    js: '**/src/js/*.js'
+  },
+
+  /**
+   * Dist(ribution) settings
+   * --
+   * these match where the processed css and javascript should go
+   *
+   * Example with values:
+   * src/js/main.js => public/dist/js/main.js
+   */
+  dist: {
+    css: '**/dist/css/',
+    js: '**/dist/js/'
+  }
+};
 const fs = require('fs');
-const minimatch = require('minimatch');
-const config = require('config');
 
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
@@ -25,45 +48,6 @@ const postcssCssnext = require('postcss-cssnext');
 const cssnano = require('cssnano');
 const postcssBrowserReporter = require('postcss-browser-reporter');
 const stylefmt = require('stylefmt');
-
-const settings = {
-
-  /**
-   * Minimatch patterns to run stylefmt on
-   * This is not run on reset and settings
-   */
-  cssFormatting: [
-    '**/src/css/main.css',
-    '**/src/css/components/**/*.css',
-    '**/src/css/utilities/**/*.css'
-  ],
-
-  /**
-   * Distribution settings
-   */
-  dist: {
-    css: 'static/dist/css/',
-    js: 'static/dist/js/'
-  },
-
-  /**
-   * Source settings
-   */
-  src: {
-    main: 'src/css/main.css',
-    css: ['src/css/**/*.css']
-  }
-};
-
-/**
- * Support minimatching for arrays
- * @param {array} arr
- * @param {string} match
- * @return {boolean} is matched to
- */
-function isMatched (arr, match) {
-  return !! arr.filter((item) => minimatch(match, item)).length;
-}
 
 function streamError(err) {
   gutil.beep();
@@ -100,8 +84,8 @@ function watch () {
 
   gulp.watch(settings.src.css, (event) => {
 
-    // Always perfectly format CSS across the team with stylefmt
-    if (isMatched(settings.cssFormatting, event.path)) {
+    // Perfectly format CSS across the team with stylefmt
+    if (settings.cssFormatting) {
       // [Using event.path for source and destination](https://github.com/gulpjs/gulp/issues/212)
       // Split the filename from the path.
       let filename = event.path.split('/');
