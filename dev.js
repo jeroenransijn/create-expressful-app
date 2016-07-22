@@ -1,6 +1,15 @@
 #!/usr/bin/env node
 'use strict';
 const settings = {
+  javascript: {
+    entryFiles: '**/src/js/*.js',
+    destination: '**/dist/js/'
+  },
+
+  css: {
+    entryFiles: '**/src/css/*.css',
+    destination: '**/dist/css/'
+  }
 
   /**
    * Source settings

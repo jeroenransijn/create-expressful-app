@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "dev": "./dev.js"
+    "expressful-tools": "./bin/expressful-tools.js"
   },
   "author": "Jeroen Ransijn (http://jeroenransijn.nl/)",
   "license": "MIT",
   "dependencies": {
     "config": "^1.21.0",
+    "cross-spawn": "^4.0.0",
     "cssnano": "^3.7.3",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
