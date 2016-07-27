@@ -1,5 +1,5 @@
 'use strict';
-var settings = require('../settings');
+var settings = require('../config/settings');
 var buildCss = require('./tasks/build-css');
 
 function build () {

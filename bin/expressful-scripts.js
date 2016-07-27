@@ -6,7 +6,7 @@ var args = process.argv.slice(3);
 
 switch (script) {
 case 'build':
-case 'start':
+case 'dev':
 case 'eject':
   spawn(
     'node',

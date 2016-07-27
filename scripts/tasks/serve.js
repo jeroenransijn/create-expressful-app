@@ -1,10 +1,10 @@
 var nodemon = require('nodemon');
 
-function serve () {
+function serve (settings) {
   var env = process.env.NODE_ENV || 'development';
 
   nodemon({
-    script: 'app.js',
+    script: settings.server.entry,
     ext: 'js html cson json nunj nunjucks mustache hbs',
     env: { 'NODE_ENV': env }
   }).on('readable', function () {

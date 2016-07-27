@@ -1,11 +1,11 @@
 'use strict';
-var settings = require('../settings');
+var settings = require('../config/settings');
 var watchCss = require('./tasks/watch-css');
 var serve = require('./tasks/serve');
 
-function start () {
+function dev () {
   watchCss(settings);
   serve(settings);
 }
 
-start();
+dev();

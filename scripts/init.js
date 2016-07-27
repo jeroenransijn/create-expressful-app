@@ -17,6 +17,8 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
   var appPackage = require(path.join(appPath, 'package.json'));
   var ownPackage = require(path.join(ownPath, 'package.json'));
 
+  appPackage.main = "index.js";
+
   // Copy over some of the devDependencies to app dependencies
   appPackage.dependencies = appPackage.dependencies || {};
   ['expressful'].forEach(function (key) {
@@ -24,8 +26,10 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
   });
 
   // Setup the script rules
-  appPackage.scripts = {};
-  ['start', 'build', 'eject'].forEach(function(command) {
+  appPackage.scripts = {
+    'start': 'node ./build/index.js'
+  };
+  ['dev', 'build', 'eject'].forEach(function(command) {
     appPackage.scripts[command] = 'expressful-scripts ' + command;
   });
 
@@ -76,14 +80,15 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
     console.log('Success! Created ' + appName + ' at ' + appPath + '.');
     console.log('Inside that directory, you can run several commands:');
     console.log();
-    console.log('  * npm start: Starts the development server.');
+    console.log('  * npm start: Run the server for production.');
+    console.log('  * npm run dev: Starts the development server.');
     console.log('  * npm run build: Bundles the app into static files for production.');
     console.log('  * npm run eject: Removes this tool. If you do this, you can’t go back!');
     console.log();
     console.log('We suggest that you begin by typing:');
     console.log();
     console.log('  cd', cdpath);
-    console.log('  npm start');
+    console.log('  npm run dev');
     console.log();
     console.log('Happy hacking!');
   });
