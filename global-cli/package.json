@@ -2,7 +2,7 @@
   "name": "create-expressful-app",
   "version": "0.0.1",
   "keywords": [
-    "react"
+    "expressful"
   ],
   "description": "Create Expressful apps with no build configuration.",
   "license": "MIT",

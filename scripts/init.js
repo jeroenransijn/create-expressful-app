@@ -19,14 +19,14 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
 
   // Copy over some of the devDependencies
   appPackage.dependencies = appPackage.dependencies || {};
-  ['react', 'react-dom'].forEach(function (key) {
-    appPackage.dependencies[key] = ownPackage.devDependencies[key];
-  });
+  // ['react', 'react-dom'].forEach(function (key) {
+  //   appPackage.dependencies[key] = ownPackage.devDependencies[key];
+  // });
 
   // Setup the script rules
   appPackage.scripts = {};
   ['start', 'build', 'eject'].forEach(function(command) {
-    appPackage.scripts[command] = 'react-scripts ' + command;
+    appPackage.scripts[command] = 'expressful-scripts ' + command;
   });
 
   // explicitly specify ESLint config path for editor plugins
