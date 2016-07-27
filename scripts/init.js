@@ -17,11 +17,11 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
   var appPackage = require(path.join(appPath, 'package.json'));
   var ownPackage = require(path.join(ownPath, 'package.json'));
 
-  // Copy over some of the devDependencies
+  // Copy over some of the devDependencies to app dependencies
   appPackage.dependencies = appPackage.dependencies || {};
-  // ['react', 'react-dom'].forEach(function (key) {
-  //   appPackage.dependencies[key] = ownPackage.devDependencies[key];
-  // });
+  ['expressful'].forEach(function (key) {
+    appPackage.dependencies[key] = ownPackage.devDependencies[key];
+  });
 
   // Setup the script rules
   appPackage.scripts = {};

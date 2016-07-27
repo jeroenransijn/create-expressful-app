@@ -1,7 +1,7 @@
 {
   "name": "expressful-scripts",
-  "version": "0.0.9",
-  "description": "",
+  "version": "0.0.10",
+  "description": "Build by convention tools for Expressful",
   "main": "index.js",
   "bin": {
     "expressful-scripts": "./bin/expressful-scripts.js"
@@ -30,5 +30,8 @@
     "postcss-import": "^8.1.2",
     "stylefmt": "^4.1.1",
     "fs-extra": "0.30.0"
+  },
+  "devDependencies": {
+    "expressful": "^0.3.2"
   }
 }
