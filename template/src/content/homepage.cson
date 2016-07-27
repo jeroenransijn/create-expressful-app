@@ -1,0 +1,3 @@
+__extend: "_global.cson"
+pageTitle: "Homepage"
+content: "Welcome to your Expressful website."
