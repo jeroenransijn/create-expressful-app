@@ -36,6 +36,6 @@
     "eslint-plugin-react": "5.2.2"
   },
   "devDependencies": {
-    "expressful": "0.3.3"
+    "expressful": "0.3.5"
   }
 }
