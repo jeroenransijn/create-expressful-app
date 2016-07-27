@@ -1,0 +1,24 @@
+{
+  "name": "create-expressful-app",
+  "version": "0.0.1",
+  "keywords": [
+    "react"
+  ],
+  "description": "Create Expressful apps with no build configuration.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "bin": {
+    "create-expressful-app": "./index.js"
+  },
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "cross-spawn": "^4.0.0",
+    "minimist": "^1.2.0",
+    "semver": "^5.0.3"
+  }
+}
