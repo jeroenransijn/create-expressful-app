@@ -1,24 +1,12 @@
-# `run-dev`
-> Future CSS and JavaScript Build tools
-
-## 1. Install the node module
+# Create Expressful App
+> Create [Expressful](https://github.com/jeroenransijn/expressful/) websites with no build configuration.
 
 ```
-$ npm install --save-dev run-dev
+$ npm install -g create-expressful-app
+
+$ create-expressful-app my-app
+$ cd my-app/
+$ npm start
 ```
 
-## 2. Add to package.json
-
-```json
-{
-  "scripts": {
-    "dev": "dev"
-  }
-}
-```
-
-## 3. Run it in the terminal
-
-```
-$ npm run dev
-```
+[Learn more about Expressful](https://github.com/jeroenransijn/expressful/)
