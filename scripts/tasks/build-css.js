@@ -25,13 +25,13 @@ var processors = [
  * READ MORE: http://cssnext.io/features/
  * cssnext is based on PostCSS
  */
-function buildCss (entryFiles, destination) {
-  gulp.src(entryFiles)
+function buildCss (settings) {
+  gulp.src(settings.css.entryFiles)
     .pipe(plumber({ errorHandler: streamError }))
     .pipe(sourcemaps.init())
     .pipe(postcss(processors))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(destination));
+    .pipe(gulp.dest(settings.css.destination));
 }
 
 function streamError (err) {

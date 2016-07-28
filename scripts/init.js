@@ -50,8 +50,7 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
   // See: https://github.com/npm/npm/issues/1862
   fs.move(path.join(appPath, 'gitignore'), path.join(appPath, '.gitignore'), []);
 
-  // Run another npm install for react and react-dom
-  console.log('Installing react and react-dom from npm...');
+  console.log('Installing dependencies from npm...');
   console.log();
   // TODO: having to do two npm installs is bad, can we avoid it?
   var args = [
