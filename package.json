@@ -1,6 +1,6 @@
 {
   "name": "expressful-scripts",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Build by convention tools for Expressful",
   "bin": {
     "expressful-scripts": "./bin/expressful-scripts.js"
