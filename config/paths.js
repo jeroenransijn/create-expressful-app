@@ -25,7 +25,7 @@ function resolve(relativePath) {
 if (isInCreateReactAppSource) {
   // create-expressful-app development: we're in ./config/
   module.exports = {
-    appBuild: resolve('../build'),
+    appBuild: resolve('../src/public/dist'),
     appPackageJson: resolve('../package.json'),
     appSrc: resolve('../template/src'),
     appNodeModules: resolve('../node_modules'),
@@ -34,7 +34,7 @@ if (isInCreateReactAppSource) {
 } else if (isInNodeModules) {
   // before eject: we're in ./node_modules/expressful-scripts/config/
   module.exports = {
-    appBuild: resolve('../../../build'),
+    appBuild: resolve('../../../src/public/dist'),
     appPackageJson: resolve('../../../package.json'),
     appSrc: resolve('../../../src'),
     appNodeModules: resolve('../..'),
