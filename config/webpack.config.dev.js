@@ -61,7 +61,7 @@ module.exports = {
         require('cssnano')()
       ]
     };
-  }
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
