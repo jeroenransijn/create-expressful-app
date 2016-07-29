@@ -13,8 +13,8 @@ var isInNodeModules = (
   path.basename(path.resolve(path.join(__dirname, '..', '..')))
 );
 
-// Are we developing create-react-app locally?
-var isInCreateReactAppSource = (
+// Are we developing create-expressful-app locally?
+var isInCreateAppSource = (
   process.argv.some(arg => arg.indexOf('--debug-template') > -1)
 );
 
@@ -22,19 +22,21 @@ function resolve(relativePath) {
   return path.resolve(__dirname, relativePath);
 }
 
-if (isInCreateReactAppSource) {
+if (isInCreateAppSource) {
   // create-expressful-app development: we're in ./config/
   module.exports = {
-    appBuild: resolve('../src/public/dist'),
+    serverEntry: resolve('../index.js'),
+    appDist: resolve('../public/dist'),
     appPackageJson: resolve('../package.json'),
-    appSrc: resolve('../template/src'),
+    appSrc: resolve('../src'),
     appNodeModules: resolve('../node_modules'),
     ownNodeModules: resolve('../node_modules')
   };
 } else if (isInNodeModules) {
   // before eject: we're in ./node_modules/expressful-scripts/config/
   module.exports = {
-    appBuild: resolve('../../../src/public/dist'),
+    serverEntry: resolve('../../../index.js'),
+    appDist: resolve('../../../public/dist'),
     appPackageJson: resolve('../../../package.json'),
     appSrc: resolve('../../../src'),
     appNodeModules: resolve('../..'),
@@ -44,7 +46,8 @@ if (isInCreateReactAppSource) {
 } else {
   // after eject: we're in ./config/
   module.exports = {
-    appBuild: resolve('../build'),
+    serverEntry: resolve('../index.js'),
+    appDist: resolve('../public/dist'),
     appPackageJson: resolve('../package.json'),
     appSrc: resolve('../src'),
     appNodeModules: resolve('../node_modules'),
