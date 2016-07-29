@@ -1,6 +1,6 @@
 {
   "name": "expressful-scripts",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "Build by convention tools for Expressful",
   "bin": {
     "expressful-scripts": "./bin/expressful-scripts.js"
@@ -19,6 +19,7 @@
     "concurrently": "^2.2.0",
     "config": "^1.21.0",
     "cross-spawn": "^4.0.0",
+    "css-loader": "^0.23.1",
     "cssnano": "^3.7.3",
     "eslint": "3.1.1",
     "eslint-loader": "1.4.1",
@@ -42,6 +43,7 @@
     "postcss-cssnext": "^2.7.0",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
+    "style-loader": "^0.13.1",
     "stylefmt": "^4.1.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
