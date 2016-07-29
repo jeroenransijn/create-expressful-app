@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var settings = require('./settings');
 
 var entries = {};
@@ -41,7 +42,7 @@ module.exports = {
       },
       {
         test:   /\.css$/,
-        loader: "style-loader!css-loader!postcss-loader"
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'postcss-loader')
       }
     ],
   },
@@ -63,6 +64,7 @@ module.exports = {
     };
   },
   plugins: [
+    new ExtractTextPlugin('[name].css'),
     new webpack.HotModuleReplacementPlugin()
   ]
 };
