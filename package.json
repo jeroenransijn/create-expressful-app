@@ -41,6 +41,7 @@
     "postcss-browser-reporter": "^0.5.0",
     "postcss-cssnext": "^2.7.0",
     "postcss-import": "^8.1.2",
+    "postcss-loader": "^0.9.1",
     "stylefmt": "^4.1.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"

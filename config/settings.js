@@ -13,8 +13,9 @@ module.exports = {
     "destination": path.join(paths.appDist, "/js/")
   },
   "css": {
-    "entryFiles": path.join(paths.appSrc, "/css/*.css"),
+    "entryFiles": glob.sync(path.join(paths.appSrc, "/css/*.css")),
     "destination": path.join(paths.appDist, "/css/"),
     "formatOnSave": true
-  }
+  },
+  "outputPath": paths.appDist
 };
