@@ -1,6 +1,6 @@
 {
   "name": "expressful-scripts",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "Build by convention tools for Expressful",
   "bin": {
     "expressful-scripts": "./bin/expressful-scripts.js"
@@ -47,6 +47,6 @@
     "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
-    "expressful": "0.3.6"
+    "expressful": "0.3.7"
   }
 }
