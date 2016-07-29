@@ -1,3 +1,5 @@
+'use strict';
+var glob = require('glob');
 var path = require('path');
 var paths = require('./paths');
 
@@ -7,7 +9,7 @@ module.exports = {
     "entry": paths.serverEntry
   },
   "javascript": {
-    "entryFiles": path.join(paths.appSrc, "/js/*.js"),
+    "entryFiles": glob.sync(path.join(paths.appSrc, "/js/*.js")),
     "destination": path.join(paths.appDist, "/js/")
   },
   "css": {
