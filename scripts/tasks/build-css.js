@@ -1,3 +1,4 @@
+'use strict';
 var gulp = require('gulp');
 var sourcemaps = require('gulp-sourcemaps');
 var plumber = require('gulp-plumber');

@@ -4,9 +4,11 @@ var spawn = require('cross-spawn');
 var script = process.argv[2];
 var args = process.argv.slice(3);
 
+// Note that `npm run dev` is concurrently running `server` and `dev-server`
 switch (script) {
 case 'build':
-case 'dev':
+case 'server':
+case 'dev-server':
 case 'eject':
   spawn(
     'node',

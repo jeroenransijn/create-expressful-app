@@ -1,14 +1,21 @@
 'use strict';
-var glob = require('glob');
-var gulp = require('gulp');
-var browserify = require('browserify');
+var path = require('path');
+var webpack = require('webpack');
+var config = require('../../config/webpack.config.prod');
 
 function buildJavascript (settings) {
-  var entryFiles = glob.sync(settings.javascript.entryFiles);
-  browserify({ entries: entryFiles })
-    .transform('babelify', { presets: ['es2015', 'react'] })
-    .bundle()
-    .pipe(gulp.dest(settings.javascript.destination));
+
+  webpack(config).run(function (err, stats) {
+    if (err) {
+      console.error(err);
+    }
+    console.log(stats.toString({
+      chunks: false, // Makes the build much quieter
+      hash: false,
+      colors: true
+    }));
+  });
+
 }
 
 module.exports = buildJavascript;

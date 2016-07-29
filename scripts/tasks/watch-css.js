@@ -1,8 +1,10 @@
+'use strict';
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var postcss = require('gulp-postcss');
 var stylefmt = require('stylefmt');
 var buildCss = require('./build-css');
+var settings = require('../../config/settings');
 
 /**
  * Watches CSS
@@ -10,7 +12,7 @@ var buildCss = require('./build-css');
  * - Runs stylefmt on file save
  * - Runs styles and compiles all the css
  */
-function watchCss (settings) {
+function watchCss () {
   gulp.watch(settings.css.entryFiles, function (event) {
 
     // Perfectly format CSS across the team with stylefmt

@@ -1,6 +1,8 @@
+'use strict';
 var nodemon = require('nodemon');
+var settings = require('../../config/settings');
 
-function serve (settings) {
+function serve () {
   var env = process.env.NODE_ENV || 'development';
 
   nodemon({

@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -27,9 +28,10 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
 
   // Setup the script rules
   appPackage.scripts = {
-    'start': 'node ./build/index.js'
+    'dev': 'concurrently "npm run server" "npm run dev-server"',
+    'start': 'node ./server/index.js'
   };
-  ['dev', 'build', 'eject'].forEach(function(command) {
+  ['server', 'dev-server', 'build', 'eject'].forEach(function(command) {
     appPackage.scripts[command] = 'expressful-scripts ' + command;
   });
 
