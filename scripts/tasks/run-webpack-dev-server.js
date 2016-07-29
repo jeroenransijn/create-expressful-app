@@ -5,7 +5,7 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('../../config/webpack.config.dev');
 
 function runWebpackDevServer () {
-  new WebpackDevServer(compiler, {
+  new WebpackDevServer(webpack(config), {
       // We need to tell Webpack to serve our bundled application
       // from the build path. When proxying:
       // http://localhost:3000/dist -> http://localhost:8080/dist

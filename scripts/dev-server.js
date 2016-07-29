@@ -4,8 +4,8 @@ var runWebpackDevServer = require('./tasks/run-webpack-dev-server');
 
 function dev () {
   // Do a build before starting
-  require('./build');
-  watchCss(settings);
+  // require('./build');
+  watchCss();
   runWebpackDevServer();
 }
 
