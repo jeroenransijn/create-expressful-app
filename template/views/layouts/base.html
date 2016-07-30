@@ -37,5 +37,9 @@
     </footer>
 
     <script src="/dist/js/main.js"></script>
+    {% if isDev %}
+      <!-- This scripts enables live css reloading. Only use in development. -->
+      <script src="/node_modules/expressful-scripts/style-reloader.js"></script>
+    {% endif %}
   </body>
 </html>
