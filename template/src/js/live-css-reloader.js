@@ -1,5 +1,5 @@
 /**
- * Style reloader *only use in Development*
+ * Live CSS reloader *only use in Development*
  * ---
  * This script is connected to the Webpack Dev Server
  * and reloads every css file if there is an update.

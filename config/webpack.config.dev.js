@@ -6,19 +6,23 @@ var settings = require('./settings');
 var entries = {};
 settings.javascript.entryFiles.forEach(function (filePath) {
   entries['js/' + path.basename(filePath)] = [
-    // For hot style updates
-    'webpack/hot/dev-server',
+    // // For hot style updates
+    // 'webpack/hot/dev-server',
     // The script refreshing the browser on none hot updates
     'webpack-dev-server/client?http://localhost:8080',
     filePath];
 });
 
 settings.css.entryFiles.forEach(function (filePath) {
-  entries['css/' + path.basename(filePath)] = [filePath];
+  entries['css/' + path.basename(filePath)] = [
+    // The script refreshing the browser on none hot updates
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',   // only prevents reload on syntax errors
+    filePath];
 });
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   entry: entries,
   output: {
     path: settings.outputPath,
@@ -42,7 +46,7 @@ module.exports = {
       },
       {
         test:   /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'postcss-loader')
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
       }
     ],
   },
@@ -64,7 +68,7 @@ module.exports = {
     };
   },
   plugins: [
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('[name]'),
     new webpack.HotModuleReplacementPlugin()
   ]
 };
