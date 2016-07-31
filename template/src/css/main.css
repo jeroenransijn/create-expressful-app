@@ -1,3 +1,13 @@
+/**
+ * main.css -- all imports go here
+ * ---
+ * USAGE: <link src="/dist/css/main.css" />
+ * ---
+ * WARNING: there is an issue with postcss-import hat crashes the css
+ * if you put anything else but imports here.
+ * --
+ */
+
 /* Settings */
 @import 'settings/colors';
 @import 'settings/font-families';

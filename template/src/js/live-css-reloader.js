@@ -10,7 +10,7 @@ window.addEventListener('message', function (e) {
 
   var links = document.querySelectorAll('link');
 
-  for (var i = 0, item; link = links[i]; i++) {
+  for (var i = 0, link; link = links[i]; i++) {
     if (link.href.indexOf('http') > -1) {
       var linkHref = link.href;
       link.href = 'about:blank';
@@ -18,3 +18,4 @@ window.addEventListener('message', function (e) {
     }
   }
 }, false);
+console.log('Live CSS reloader initialized.');

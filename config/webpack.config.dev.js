@@ -63,7 +63,8 @@ module.exports = {
           browsers: ['last 1 version'],
           warnForDuplicates: false
         }),
-        require('cssnano')()
+        require('postcss-browser-reporter')(),
+        require('postcss-reporter')()
       ]
     };
   },
