@@ -1,6 +1,6 @@
 {
   "name": "expressful-scripts",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "description": "Build by convention tools for Expressful",
   "bin": {
     "expressful-scripts": "./bin/expressful-scripts.js"
@@ -32,6 +32,7 @@
     "postcss-cssnext": "^2.7.0",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
+    "postcss-reporter": "^1.4.1",
     "style-loader": "^0.13.1",
     "stylefmt": "^4.1.1",
     "webpack": "^1.13.1",
