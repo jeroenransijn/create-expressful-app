@@ -7,6 +7,7 @@ function serve () {
 
   nodemon({
     script: settings.server.entry,
+    ignore: ['src', 'public'],
     ext: 'js html cson json nunj nunjucks mustache hbs',
     env: { 'NODE_ENV': env }
   }).on('readable', function () {

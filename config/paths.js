@@ -26,7 +26,7 @@ if (isInCreateAppSource) {
   // create-expressful-app development: we're in ./config/
   module.exports = {
     serverEntry: resolve('../index.js'),
-    appDist: resolve('../public/dist'),
+    appPublic: resolve('../public'),
     appPackageJson: resolve('../package.json'),
     appSrc: resolve('../src'),
     appNodeModules: resolve('../node_modules'),
@@ -36,7 +36,7 @@ if (isInCreateAppSource) {
   // before eject: we're in ./node_modules/expressful-scripts/config/
   module.exports = {
     serverEntry: resolve('../../../index.js'),
-    appDist: resolve('../../../public/dist'),
+    appPublic: resolve('../../../public'),
     appPackageJson: resolve('../../../package.json'),
     appSrc: resolve('../../../src'),
     appNodeModules: resolve('../..'),
@@ -47,7 +47,7 @@ if (isInCreateAppSource) {
   // after eject: we're in ./config/
   module.exports = {
     serverEntry: resolve('../index.js'),
-    appDist: resolve('../public/dist'),
+    appPublic: resolve('../public'),
     appPackageJson: resolve('../package.json'),
     appSrc: resolve('../src'),
     appNodeModules: resolve('../node_modules'),
