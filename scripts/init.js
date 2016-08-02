@@ -29,7 +29,7 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
   // Setup the script rules
   appPackage.scripts = {
     'dev': 'concurrently "npm run server" "npm run dev-server"',
-    'start': 'node ./server/index.js'
+    'start': 'node ./index.js'
   };
   ['server', 'dev-server', 'build', 'eject'].forEach(function(command) {
     appPackage.scripts[command] = 'expressful-scripts ' + command;
