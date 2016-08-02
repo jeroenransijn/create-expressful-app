@@ -24,19 +24,19 @@ module.exports = {
     publicPath: '/'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loader: 'eslint',
+        include: settings.appSrc,
+      }
+    ],
     loaders: [
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /(node_modules|bower_components)/,
-        query: {
-          babelrc: false,
-          presets: [
-            'react',
-            'es2015',
-            'stage-0'
-          ]
-        }
+        query: require('./babel.dev')
       },
       {
         test:   /\.css$/,

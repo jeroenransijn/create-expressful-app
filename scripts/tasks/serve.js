@@ -6,7 +6,7 @@ function serve () {
   var env = process.env.NODE_ENV || 'development';
 
   nodemon({
-    script: settings.server.entry,
+    script: settings.serverEntry,
     ignore: ['src', 'public'],
     ext: 'js html cson json nunj nunjucks mustache hbs',
     env: { 'NODE_ENV': env }

@@ -3,11 +3,7 @@ var glob = require('glob');
 var path = require('path');
 var paths = require('./paths');
 
-module.exports = {
-  "server": {
-    // This is only used for development
-    "entry": paths.serverEntry
-  },
+module.exports = Object.assign({}, paths, {
   "javascript": {
     "entryFiles": glob.sync(path.join(paths.appSrc, "/js/*.js")),
   },
@@ -16,4 +12,4 @@ module.exports = {
     "formatOnSave": true
   },
   "outputPath": path.join(paths.appPublic, 'dist')
-};
+});
