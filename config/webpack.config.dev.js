@@ -19,7 +19,7 @@ module.exports = configBase({
       {
         test: /\.js$/,
         loader: 'eslint',
-        include: settings.appSrc,
+        include: settings.appSrc
       }
     ]
   },
