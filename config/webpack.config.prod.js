@@ -8,7 +8,7 @@ settings.javascript.entryFiles.forEach(function (filePath) {
   jsEntryFiles['js/' + path.basename(filePath)] = [filePath];
 });
 
-modules.exports = configBase({
+module.exports = configBase({
   jsEntryFiles: jsEntryFiles,
   plugins: [
     // Search for equal or similar files and deduplicate them in the output

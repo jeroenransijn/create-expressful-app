@@ -12,7 +12,7 @@ settings.javascript.entryFiles.forEach(function (filePath) {
     filePath];
 });
 
-modules.exports = configBase({
+module.exports = configBase({
   jsEntryFiles: jsEntryFiles,
   moduleAssign: {
     preLoaders: [
