@@ -5,7 +5,6 @@ var buildJavascript = require('./tasks/build-javascript');
 
 function build () {
   buildJavascript(settings);
-  buildCss(settings);
 }
 
 build();
