@@ -13,7 +13,7 @@ function configBase (options) {
   var moduleAssign = options.moduleAssign || {};
   var plugins = options.plugins || [];
 
-  var config = {
+  return {
     devtool: 'source-map',
     entry: Object.assign(entries, options.jsEntryFiles),
     output: {
@@ -61,8 +61,6 @@ function configBase (options) {
       new ExtractTextPlugin('[name]')
     ].concat(plugins)
   };
-
-  config.
 }
 
 module.exports = configBase;
