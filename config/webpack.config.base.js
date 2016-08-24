@@ -23,10 +23,15 @@ function configBase (options) {
     output: {
       path: settings.outputPath,
       filename: '[name]',
-      publicPath: '/'
+      publicPath: '/dist/'
     },
     module: Object.assign({
       loaders: [
+        {
+          test: /(\.react\.js|\.jsx)$/,
+          loaders: reactHot ? ['react-hot', babelLoaderWithQuery] : [babelLoaderWithQuery],
+          exclude: /(node_modules|bower_components)/
+        },
         {
           // Don’t do react hot reloading on js, since this allows
           // for people to opt out of react, and since react is a peer dependency
@@ -37,18 +42,13 @@ function configBase (options) {
           query: require('./babel.dev')
         },
         {
-          test: /\.jsx$/,
-          loaders: reactHot ? ['react-hot', babelLoaderWithQuery] : [babelLoaderWithQuery],
-          exclude: /(node_modules|bower_components)/
-        },
-        {
           test:   /\.css$/,
           loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
         }
       ],
     }, moduleAssign),
     resolve: {
-      extensions: ['', '.js', '.jsx']
+      extensions: ['', '.react.js', '.js', '.jsx']
     },
     eslint: {
       configFile: path.join(__dirname, 'eslint.js'),

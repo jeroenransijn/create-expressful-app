@@ -9,6 +9,7 @@ settings.javascript.entryFiles.forEach(function (filePath) {
   jsEntryFiles['js/' + path.basename(filePath)] = [
     // The script refreshing the browser on none hot updates
     'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
     filePath];
 });
 
