@@ -10,12 +10,14 @@ settings.css.entryFiles.forEach(function (filePath) {
 
 function configBase (options) {
 
+  var reactHot = options.reactHot || false;
+  var entry = Object.assign(entries, options.jsEntryFiles);
   var moduleAssign = options.moduleAssign || {};
   var plugins = options.plugins || [];
 
   return {
     devtool: 'source-map',
-    entry: Object.assign(entries, options.jsEntryFiles),
+    entry: entry,
     output: {
       path: settings.outputPath,
       filename: '[name]',
@@ -25,7 +27,7 @@ function configBase (options) {
       loaders: [
         {
           test: /\.(js|jsx)$/,
-          loader: 'babel-loader',
+          loader: reactHot ? ['react-hot', 'babel-loader'] : 'babel-loader',
           exclude: /(node_modules|bower_components)/,
           query: require('./babel.dev')
         },

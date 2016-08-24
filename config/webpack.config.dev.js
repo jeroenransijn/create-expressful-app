@@ -13,6 +13,7 @@ settings.javascript.entryFiles.forEach(function (filePath) {
 });
 
 module.exports = configBase({
+  reactHot: true,
   jsEntryFiles: jsEntryFiles,
   moduleAssign: {
     preLoaders: [
