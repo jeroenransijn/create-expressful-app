@@ -26,7 +26,16 @@ function configBase (options) {
     module: Object.assign({
       loaders: [
         {
-          test: /\.(js|jsx)$/,
+          // Don’t do react hot reloading on js, since this allows
+          // for people to opt out of react, and since react is a peer dependency
+          // of react-hot users don’t need to install it if they are not using react.
+          test: /\.js$/,
+          loader: 'babel-loader',
+          exclude: /(node_modules|bower_components)/,
+          query: require('./babel.dev')
+        },
+        {
+          test: /\.jsx$/,
           loader: reactHot ? ['react-hot', 'babel-loader'] : 'babel-loader',
           exclude: /(node_modules|bower_components)/,
           query: require('./babel.dev')
