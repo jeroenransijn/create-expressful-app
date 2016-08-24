@@ -15,6 +15,8 @@ function configBase (options) {
   var moduleAssign = options.moduleAssign || {};
   var plugins = options.plugins || [];
 
+  var babelLoaderWithQuery = 'babel-loader?' + JSON.stringify(require('./babel.dev'));
+
   return {
     devtool: 'source-map',
     entry: entry,
@@ -36,9 +38,8 @@ function configBase (options) {
         },
         {
           test: /\.jsx$/,
-          loaders: reactHot ? ['react-hot', 'babel-loader'] : ['babel-loader'],
-          exclude: /(node_modules|bower_components)/,
-          query: require('./babel.dev')
+          loaders: reactHot ? ['react-hot', babelLoaderWithQuery] : [babelLoaderWithQuery],
+          exclude: /(node_modules|bower_components)/
         },
         {
           test:   /\.css$/,
