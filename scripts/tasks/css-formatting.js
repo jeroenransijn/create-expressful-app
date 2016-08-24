@@ -1,4 +1,5 @@
 'use strict';
+var Path = require('path');
 var fs = require('fs');
 var chokidar = require('chokidar');
 var stylefmt = require('stylefmt');
@@ -19,7 +20,9 @@ function cssFormatting () {
       if (err) throw err;
 
       postcss([
-        stylefmt
+        stylefmt({
+          config: Path.join(settings.config, '.stylelintrc.js')
+        })
       ]).process(data)
         .then(function (result) {
           if (result.css === data) return;

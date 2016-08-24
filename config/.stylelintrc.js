@@ -1,5 +1,5 @@
 'use strict';
-var settings = require('settings');
+var settings = require('./settings');
 
 module.exports = {
 	"extends": "stylelint-config-suitcss",

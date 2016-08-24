@@ -25,6 +25,7 @@ function resolve(relativePath) {
 if (isInCreateAppSource) {
   // create-expressful-app development: we're in ./config/
   module.exports = {
+    config: resolve(''),
     serverEntry: resolve('../index.js'),
     appPublic: resolve('../public'),
     appPackageJson: resolve('../package.json'),
@@ -35,6 +36,7 @@ if (isInCreateAppSource) {
 } else if (isInNodeModules) {
   // before eject: we're in ./node_modules/expressful-scripts/config/
   module.exports = {
+    config: resolve(''),
     serverEntry: resolve('../../../index.js'),
     appPublic: resolve('../../../public'),
     appPackageJson: resolve('../../../package.json'),
@@ -46,6 +48,7 @@ if (isInCreateAppSource) {
 } else {
   // after eject: we're in ./config/
   module.exports = {
+    config: resolve(''),
     serverEntry: resolve('../index.js'),
     appPublic: resolve('../public'),
     appPackageJson: resolve('../package.json'),
