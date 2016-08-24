@@ -32,3 +32,5 @@ function cssFormatting () {
     });
   });
 }
+
+module.exports = cssFormatting;
