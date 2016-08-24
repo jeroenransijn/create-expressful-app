@@ -36,7 +36,7 @@ function configBase (options) {
         },
         {
           test: /\.jsx$/,
-          loader: reactHot ? ['react-hot', 'babel-loader'] : 'babel-loader',
+          loaders: reactHot ? ['react-hot', 'babel-loader'] : ['babel-loader'],
           exclude: /(node_modules|bower_components)/,
           query: require('./babel.dev')
         },
