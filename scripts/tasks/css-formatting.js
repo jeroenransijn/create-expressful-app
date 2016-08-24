@@ -22,15 +22,20 @@ function cssFormatting () {
         stylefmt
       ]).process(data)
         .then(function (result) {
+          if (result.css === data) return;
           fs.writeFile(path, result.css, function (err) {
             if (err) throw err;
-            console.log('css formatted for:', path);
+            console.log('css formatted for:', subtractPath(path, settings.appSrc));
           });
         }).catch(function (err) {
           console.error('css formatting error:', err);
         });
     });
   });
+}
+
+function subtractPath (full, partial) {
+  return full.substring(full.indexOf(partial) + partial.length);
 }
 
 module.exports = cssFormatting;

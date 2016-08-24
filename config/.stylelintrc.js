@@ -1,6 +1,10 @@
-{
+'use strict';
+var settings = require('settings');
+
+module.exports = {
 	"extends": "stylelint-config-suitcss",
 	"rules": {
+		"indentation": settings.css.editorconfig.indent_style || "space",
 		"declaration-block-properties-order": [
 			"@apply",
 			"position",
@@ -195,4 +199,4 @@
 			"orientation"
 		]
 	}
-}
+};
