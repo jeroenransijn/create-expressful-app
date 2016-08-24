@@ -28,10 +28,10 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
 
   // Setup the script rules
   appPackage.scripts = {
-    'dev': 'concurrently "npm run server" "npm run dev-server"',
+    'dev': 'concurrently "npm run server" "npm run dev-server" "npm run css-formatting"',
     'start': 'node ./index.js'
   };
-  ['server', 'dev-server', 'build', 'eject'].forEach(function(command) {
+  ['server', 'dev-server', 'build', 'css-formatting', 'eject'].forEach(function(command) {
     appPackage.scripts[command] = 'expressful-scripts ' + command;
   });
 

@@ -9,6 +9,7 @@ switch (script) {
 case 'build':
 case 'server':
 case 'dev-server':
+case 'css-formatting':
 case 'eject':
   spawn(
     'node',

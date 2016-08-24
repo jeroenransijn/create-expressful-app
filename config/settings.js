@@ -8,6 +8,7 @@ module.exports = Object.assign({}, paths, {
     "entryFiles": glob.sync(path.join(paths.appSrc, "/js/*.js")),
   },
   "css": {
+    "glob": path.join(paths.appSrc, "/css/**/*.css"),
     "entryFiles": glob.sync(path.join(paths.appSrc, "/css/*.css")),
     "formatOnSave": true
   },
