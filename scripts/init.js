@@ -1,5 +1,6 @@
 'use strict';
 /**
+ * modified by Jeroen Ransijn
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
  *
@@ -11,6 +12,7 @@
 var fs = require('fs-extra');
 var path = require('path');
 var spawn = require('cross-spawn');
+var downloadGitRepo = require('download-git-repo');
 
 module.exports = function(appPath, appName, verbose, originalDirectory) {
   var ownPath = path.join(appPath, 'node_modules', 'expressful-scripts');
@@ -47,6 +49,10 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
 
   // Copy the files for the user
   fs.copySync(path.join(ownPath, 'template'), appPath);
+
+  downloadGitRepo('jeroenransijn/expressful-css/tree/master/css', 'src/css', function (err) {
+    if (err) console.error(err);
+  });
 
   // Rename gitignore after the fact to prevent npm from renaming it to .npmignore
   // See: https://github.com/npm/npm/issues/1862
