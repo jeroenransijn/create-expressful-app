@@ -50,8 +50,15 @@ module.exports = function(appPath, appName, verbose, originalDirectory) {
   // Copy the files for the user
   fs.copySync(path.join(ownPath, 'template'), appPath);
 
-  downloadGitRepo('jeroenransijn/expressful-css/tree/master/css', 'src/css', function (err) {
-    if (err) console.error(err);
+  // Download expressful-css in a temp and then copy over
+  var tempCSSPath = path.join(appPath, 'src/expressful-css');
+
+  fs.mkdirSync(tempCSSPath);
+
+  downloadGitRepo('jeroenransijn/expressful-css', tempCSSPath, function (err) {
+    if (err) return console.error(err);
+    fs.copySync(path.join(tempCSSPath, 'css'), path.join(appPath, 'src/css'));
+    fs.rmdirSync(tempCSSPath);
   });
 
   // Rename gitignore after the fact to prevent npm from renaming it to .npmignore
