@@ -46,6 +46,6 @@
     "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
-    "expressful": "0.3.11"
+    "expressful": "0.4.1"
   }
 }
