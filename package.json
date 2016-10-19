@@ -1,6 +1,6 @@
 {
   "name": "expressful-scripts",
-  "version": "0.4.1",
+  "version": "0.5.3",
   "description": "Build by convention tools for Expressful",
   "bin": {
     "expressful-scripts": "./bin/expressful-scripts.js"
@@ -23,6 +23,7 @@
     "cross-spawn": "^4.0.0",
     "css-loader": "^0.23.1",
     "cssnano": "^3.7.3",
+    "download-git-repo": "^0.1.2",
     "editorconfig": "^0.13.2",
     "eslint": "3.1.1",
     "eslint-loader": "1.4.1",
@@ -45,6 +46,6 @@
     "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
-    "expressful": "0.3.11"
+    "expressful": "0.4.1"
   }
 }
